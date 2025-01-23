@@ -1,4 +1,5 @@
 import react from "react"
+import DarkMode from "./DarkMode";
 
 export default function NavBar() {
     const NavLink = [
@@ -25,28 +26,30 @@ export default function NavBar() {
     ]
     return (
         <div className="shadow-md w-full dark:bg-black dark:text-white">
-            <div className="container">
-                <div className="flex justify-between item-center">
+            <div className="container py-2 sm:py-0">
+                <div className="flex justify-between items-center">
                     <div>
                         <span className="text-3xl font-bold">
                             Portofolio
                         </span>
                     </div>
-                    <div>
-                        <ul className="flex item-center gap-6 pr-10">
+                    <div className="hidden sm:block">
+                        <ul className="flex items-center gap-6 pr-10">
                             {
                                 NavLink.map (( {id, name, link}) => 
                                 (
                                 <li key={id}>
-                                    <a className="inline-block text-lg font-medium py3 hover:text-primary transition-all duration-400"
+                                    <a className="inline-block text-lg font-medium py-3 hover:text-primary transition-all duration-400"
                                      href={link}>
                                         {name}
                                     </a>
                                 </li>
-
                                 ))
                             }
                         </ul>
+                    </div>
+                    <div>
+                        <DarkMode/>
                     </div>
                 </div>
             </div>
